@@ -27,7 +27,10 @@ async function fetchAttendance() {
   };
 
   try {
+    console.log(config)
     const response = await axios(config);
+    // console.log(response)
+    console.log(response.data)
     const result = response.data;
 
     return {
@@ -44,6 +47,7 @@ async function fetchAttendance() {
       attendanceData: result.attendanceData.reverse().map((item: any) => ({
         Subject: item.subjectName,
         Absent: new Date(item.absentDate).toLocaleDateString(),
+        isAbsent: item.isAbsent,
       })),
     };
   } catch (error) {

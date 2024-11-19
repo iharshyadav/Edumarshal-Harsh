@@ -23,6 +23,7 @@ interface AttendanceData {
   attendanceData: Array<{
     Subject: string
     Absent: string
+    isAbsent: boolean
   }>
 }
 
